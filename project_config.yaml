@@ -1,0 +1,13 @@
+project_name: "my_project"
+version: "0.1.0"
+python_version: "^3.8"
+dependencies:
+  main:
+    - "tiktoken"
+  test:
+    - "pytest"
+structure:
+  - "src":
+      - "models":
+      - "scripts":
+  - "tests"
