@@ -18,16 +18,16 @@ Create a `project_config.yaml` file with your project's configurations. Here is 
 ```yaml
 project_name: "my_project"
 version: "0.1.0"
-python_version: "3.8"
+python_version: "^3.8"
 dependencies:
   main:
-    - "requests"
+    - "tiktoken"
   test:
     - "pytest"
 structure:
   - "src":
-      - "model"
-      - "scripts"
+      - "models":
+      - "scripts":
   - "tests"
 remote_url: "https://github.com/yourusername/my_project.git"
 ```
