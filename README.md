@@ -2,13 +2,14 @@
 
 ## Overview
 
-This script automates the setup of a new Python project. It creates the project structure, initializes a Poetry environment, manages dependencies, sets up a Git repository, and prepares a Dockerfile based on configurations specified in a YAML file.
+This script streamlines the creation of a new Python project. It builds the project structure, initializes a Poetry environment, manages dependencies, sets up a Git repository, prepares a Dockerfile, configures pre-commit hooks, and sets up a CI/CD pipeline using GitHub Actions. The configurations are specified in a YAML file.
 
 ## Prerequisites
 
 - **Python** (3.6 or newer)
 - **Poetry** for dependency management
 - **Git** for version control
+- **pre-commit** for managing and maintaining pre-commit hooks
 
 ## Configuration
 
@@ -42,7 +43,7 @@ Customize this template according to your project requirements.
 python setup_project.py project_config.yaml
 ```
 
-3. Project Structure: After running the script, your project directory will be set up with the specified structure, including a pyproject.toml file for Poetry, a Git repository, and a Dockerfile.
+3. Project Structure: The script sets up your project directory with the specified structure, including pyproject.toml for Poetry, a Git repository, a Dockerfile, pre-commit hooks, and CI/CD configuration.
 4. Activating the Virtual Environment: Navigate to your project's directory and activate the Poetry-managed virtual environment:
 
 ```bash
@@ -54,7 +55,9 @@ poetry shell
 
 - Creates a new project directory with the specified structure.
 - Initializes a Poetry project with dependencies.
-- Updates the pyproject.toml with project details.
-- Creates .gitignore and README.md.
+- Updates the `pyproject.toml` with project details.
+- Creates `.gitignore` and `README.md`.
 - Initializes a Git repository and sets a remote URL if provided.
 - Generates a Dockerfile.
+- Sets up pre-commit hooks.
+- Configures a CI/CD pipeline using GitHub Actions for automated testing across multiple Python versions.
