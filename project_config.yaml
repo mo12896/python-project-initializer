@@ -1,13 +1,28 @@
-project_name: "my_project"
+project_name: "NeRF"
 version: "0.1.0"
-python_version: "^3.8"
+python_version: "3.9"
 dependencies:
   main:
-    - "tiktoken"
+    - "matplotlib"
+    - "numpy"
+    - "scipy"
+    - "Pillow"  # For image processing
+    - "tqdm"  # For displaying progress bars during training and testing
   test:
     - "pytest"
 structure:
   - "src":
       - "models":
+          - "nerf_model.py"  # Implements the NeRF MLP architecture
       - "scripts":
-  - "tests"
+          - "train.py"  # Script to train the NeRF model
+          - "render_views.py"  # Script to render novel views from the trained NeRF model
+          - "data_preprocessing.py"  # Script for preprocessing the input datasets
+          - "camera_pose_estimation.py"  # Utility script for estimating camera poses if needed
+          - "volume_rendering.py"  # Implements the volume rendering technique described in the paper
+          - "utils.py"  # Contains utility functions used across the project
+  - "tests":
+      - "test_model.py"  # Tests for the NeRF model implementation
+      - "test_rendering.py"  # Tests for the rendering outputs
+pre_commit_config_url: "https://raw.githubusercontent.com/pre-commit/pre-commit/main/.pre-commit-config.yaml"
+gitignore_url: "https://raw.githubusercontent.com/github/gitignore/main/Python.gitignore"

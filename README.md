@@ -7,9 +7,12 @@ This script streamlines the creation of a new Python project. It builds the proj
 ## Prerequisites
 
 - **Python** (3.6 or newer)
+- **pyenv** for managing Python versions
 - **Poetry** for dependency management
 - **Git** for version control
 - **pre-commit** for managing and maintaining pre-commit hooks
+- **Docker** for containerization
+
 
 ## Configuration
 
