@@ -26,3 +26,4 @@ structure:
       - "test_rendering.py"  # Tests for the rendering outputs
 pre_commit_config_url: "https://raw.githubusercontent.com/pre-commit/pre-commit/main/.pre-commit-config.yaml"
 gitignore_url: "https://raw.githubusercontent.com/github/gitignore/main/Python.gitignore"
+license_url: "https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt"

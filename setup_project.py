@@ -93,7 +93,7 @@ def initial_commit_and_push(base_path, remote_url):
         )
 
 
-def create_standard_files(base_path, gitignore_url, pre_commit_config_url):
+def create_standard_files(base_path, gitignore_url, pre_commit_config_url, license_url):
     # Combines fetching and creating both .gitignore, .pre-commit-config.yaml and README.md
 
     def fetch_file(url):
@@ -117,6 +117,11 @@ def create_standard_files(base_path, gitignore_url, pre_commit_config_url):
         logging.info("Downloaded and created .pre-commit-config.yaml")
         subprocess.run(["pre-commit", "install"], cwd=base_path, check=True)
         logging.info("Set up pre-commit hooks")
+
+    license_content = fetch_file(license_url)
+    if license_content:
+        (base_path / "LICENSE").write_text(license_content)
+        logging.info("Created LICENSE file")
 
     # Create README.md as before
     (base_path / "README.md").write_text(f"# Project {base_path.name}\n")
@@ -217,6 +222,10 @@ def main(config_path):
         "gitignore_url",
         "https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore",
     )
+    license_url = config.get(
+        "license_url",
+        "https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt",
+    )
 
     base_path = Path("..").resolve() / project_name
 
@@ -271,7 +280,7 @@ def main(config_path):
 
     setup_git(base_path, remote_url)
 
-    create_standard_files(base_path, gitignore_url, pre_commit_config_url)
+    create_standard_files(base_path, gitignore_url, pre_commit_config_url, license_url)
     setup_testing_and_ci_cd(base_path)
 
     if error_log:
